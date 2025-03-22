@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#objects-panel {
+  width: 400px;
+}
+
+#properties-panel {
+  width: 300px;
+}
