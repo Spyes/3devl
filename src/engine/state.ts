@@ -1,6 +1,7 @@
-import { GameState } from "./engine.types";
+import { produce } from "immer";
+import { GameObject, GameState } from "./engine.types"
 
-export const State: GameState = {
+let state: GameState = {
   objects: [
     {
       name: 'Platformer_Character',
@@ -38,4 +39,22 @@ export const State: GameState = {
       ]
     },
   ]
+}
+
+export default {
+  get(): GameState {
+    return state;
+  },
+  addGlobalObject(object: GameObject): GameState {
+    state = produce(state, draft => {
+      draft.objects.push(object)
+    })
+    return state
+  },
+  addSceneObject(scene: number, object: GameObject): GameState {
+    state = produce(state, draft => {
+      draft.scenes[scene].objects.push(object)
+    })
+    return state
+  }
 }

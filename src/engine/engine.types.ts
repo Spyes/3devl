@@ -1,7 +1,9 @@
-export type GameState = {
+import { Immutable } from "immer"
+
+export type GameState = Immutable<{
   objects: GameObject[]
   scenes: GameScene[]
-}
+}>
 
 export type GameObject = {
   name: string
